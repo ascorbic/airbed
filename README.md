@@ -2,13 +2,15 @@
 ## A lightweight CouchDB Actionscript 3 client library for Adobe AIR
 
 CouchDB has a very simple RESTful API, so it's quite possible to interact with it just using basic HTTP classes. 
-However, that can get a little cumbersome so a library can help. This is designed to be as "close to the metal" as possible, with just a few convenience features such as session handling and change watching. If you need more features such as DAO mapping and support for non-AIR use, try [https://github.com/bustardcelly/as3couchdb](as3couchdb).
+However, that can get a little cumbersome so a library can help. This is designed to be as "close to the metal" as possible, with just a few convenience features such as session handling and change watching. The syntax is quite similar to the jQuery ajax methods.
+
+If you need more features such as DAO mapping and support for non-AIR use, try [as3couchdb](https://github.com/bustardcelly/as3couchdb).
 
 It also includes a UUID class which generates genuine unique values. This can be guaranteed because the hashed string includes the machine's MAC address.
 
 ### Usage
 
-For the full API, look at the comments. This is a basic example of logging-in, watching for changes and adding a document.
+For the full API, look at the comments. This is a basic example of logging-in, watching for changes, adding a document then uploading an atatchment to it.
 
     var server:CouchServer = new CouchServer('http://127.0.0.1:5984/');
 
