@@ -45,7 +45,7 @@ For the full API, look at the comments. This is a basic example of logging-in, w
     }
  
 ### Requirements
-[as3corelib](http://code.google.com/p/as3corelib/) for JSON handling, SHA1 and events.
+[as3corelib](http://code.google.com/p/as3corelib/) for SHA1 and events. [actionjson](https://github.com/mherkender/actionjson) for very fast JSON handling.
 
 The `UUID` class requires Flex 4 and Adobe AIR 2.
 

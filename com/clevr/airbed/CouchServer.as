@@ -11,7 +11,6 @@ package com.clevr.airbed {
 	import flash.net.URLRequestMethod;
 	import flash.net.URLRequest;
 	import flash.net.URLLoader;
-	import com.adobe.serialization.json.JSON;
 	import com.clevr.airbed.events.CouchEvent;
 	import flash.events.Event;
 	import flash.utils.Dictionary;
@@ -24,6 +23,8 @@ package com.clevr.airbed {
 	import flash.utils.Timer;
 	import flash.net.FileReference;
 	import flash.events.DataEvent;
+	import com.brokenfunction.json.encodeJson;
+	import com.brokenfunction.json.decodeJson;
 
 	[Event(name="couchComplete", type="com.clevr.airbed.events.CouchEvent")]
 	
@@ -144,14 +145,14 @@ package com.clevr.airbed {
 			req.method = method;
 			if(data !== null) {
 				req.contentType = 'application/json';
-				req.data = JSON.encode(data);
+				req.data = encodeJson(data);
 			}
 			
 			var loader:URLLoader = new URLLoader();
 			loader.dataFormat = URLLoaderDataFormat.TEXT;
 			
 			loader.addEventListener(Event.COMPLETE, function(event:Event):void {
-				var obj:Object = JSON.decode(event.target.data as String);				
+				var obj:Object = decodeJson(event.target.data);				
 				
 				var e:CouchEvent;
 				
@@ -211,7 +212,7 @@ package com.clevr.airbed {
 			
 			file.addEventListener(DataEvent.UPLOAD_COMPLETE_DATA, function(event:DataEvent):void {
 				trace(event.data);
-				var obj:Object = JSON.decode(event.data as String);				
+				var obj:Object = decodeJson(event.data);	
 				
 				var e:CouchEvent;
 				

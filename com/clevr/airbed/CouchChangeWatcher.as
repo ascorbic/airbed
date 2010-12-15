@@ -11,7 +11,7 @@ package com.clevr.airbed {
 	import flash.net.URLStream;
 	import flash.events.ProgressEvent;
 	import com.clevr.airbed.events.CouchEvent;
-	import com.adobe.serialization.json.JSON;
+	import com.brokenfunction.json.decodeJson;
 	import flash.events.TimerEvent;
 	import flash.events.Event;
 	import flash.net.URLRequest;
@@ -93,7 +93,7 @@ package com.clevr.airbed {
 		}
 		
 		private function handleNotification(data:String):void {
-			var obj:Object = JSON.decode(data);
+			var obj:Object = decodeJson(data);
 			if (obj) {
 				var e:CouchEvent;
 				if(obj.error) {
